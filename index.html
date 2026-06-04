@@ -709,8 +709,7 @@
   </div>
 
   <div class="filter-tabs">
-    <button class="filter-tab active" data-filter="all">Tous</button>
-    <button class="filter-tab" data-filter="corporate">Corporate & Événementiel</button>
+    <button class="filter-tab active" data-filter="corporate">Corporate & Événementiel</button>
     <button class="filter-tab" data-filter="ugc">UGC & Réseaux Sociaux</button>
     <button class="filter-tab" data-filter="ia">IA & Créatif</button>
     <button class="filter-tab" data-filter="event">Anniversaires & Mariages</button>
@@ -822,24 +821,26 @@
       </div>
     </div>
 
-    <!-- Mariage 1 -->
-    <div class="project-card" data-cat="event">
-      <div class="video-placeholder">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
-        <p>Film de mariage</p>
+    <!-- Anniversaire 1 -->
+    <div class="project-card" data-cat="event" onclick="openVideo('ve6Aq9lI4VQ')" style="cursor:pointer;">
+      <img src="https://img.youtube.com/vi/ve6Aq9lI4VQ/maxresdefault.jpg" alt="Soirée Anniversaire" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
+        <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #C9A96E;transition:transform 0.2s;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#C9A96E"><polygon points="6,3 20,12 6,21"/></svg>
+        </div>
       </div>
-      <span class="project-badge badge-event">Mariage</span>
+      <span class="project-badge badge-event">Anniversaire</span>
       <div class="project-overlay">
-        <div class="project-cat cat-event">Mariage — Film de couple</div>
-        <div class="project-name">Film de Mariage</div>
-        <div class="project-desc">Captation et montage cinématique d'une journée de mariage — du préparatif à la soirée.</div>
-        <a href="#" class="project-link">Voir la vidéo →</a>
+        <div class="project-cat cat-event">Anniversaire — Événement privé</div>
+        <div class="project-name">Soirée Anniversaire</div>
+        <div class="project-desc">Reportage vidéo d'une soirée d'anniversaire privée — ambiance, émotions et moments forts.</div>
+        <span class="project-link" style="cursor:pointer;">Voir la vidéo →</span>
       </div>
     </div>
 
-    <!-- Anniversaire 1 -->
+    <!-- Anniversaire 2 -->
     <div class="project-card" data-cat="event" onclick="openVideo('w2fPZeUhl94')" style="cursor:pointer;">
-      <img src="https://img.youtube.com/vi/w2fPZeUhl94/maxresdefault.jpg" alt="Soirée Anniversaire Ethan" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
+      <img src="https://img.youtube.com/vi/w2fPZeUhl94/maxresdefault.jpg" alt="Soirée Anniversaire Ethan 10 ans" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
         <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #C9A96E;transition:transform 0.2s;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="#C9A96E"><polygon points="6,3 20,12 6,21"/></svg>
@@ -978,10 +979,6 @@
           <span>06 13 30 40 11</span>
         </div>
         <div class="contact-item">
-          <div class="contact-item-icon">🌐</div>
-          <span>ericcobeykoy.myportfolio.com</span>
-        </div>
-        <div class="contact-item">
           <div class="contact-item-icon">📍</div>
           <span>Île-de-France — France</span>
         </div>
@@ -1053,13 +1050,20 @@ document.querySelectorAll('.filter-tab').forEach(tab => {
     tab.classList.add('active');
     const filter = tab.dataset.filter;
     document.querySelectorAll('.project-card').forEach(card => {
-      if (filter === 'all' || card.dataset.cat === filter) {
+      if (card.dataset.cat === filter) {
         card.classList.remove('hidden');
       } else {
         card.classList.add('hidden');
       }
     });
   });
+});
+
+// Affiche Corporate par défaut
+document.querySelectorAll('.project-card').forEach(card => {
+  if (card.dataset.cat !== 'corporate') {
+    card.classList.add('hidden');
+  }
 });
 
 document.querySelectorAll('.project-link').forEach(link => {
