@@ -284,6 +284,9 @@
     gap: 2px;
     align-items: start;
   }
+  .projects-grid.ugc-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
   .project-card {
     position: relative;
     aspect-ratio: 16/9;
@@ -294,6 +297,7 @@
   }
   .project-card.vertical {
     aspect-ratio: 9/16;
+    max-height: 400px;
   }
   .project-card.hidden {
     display: none;
@@ -1055,6 +1059,8 @@ document.querySelectorAll('.filter-tab').forEach(tab => {
     document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
     const filter = tab.dataset.filter;
+    const grid = document.querySelector('.projects-grid');
+    grid.classList.toggle('ugc-grid', filter === 'ugc');
     document.querySelectorAll('.project-card').forEach(card => {
       if (card.dataset.cat === filter) {
         card.classList.remove('hidden');
