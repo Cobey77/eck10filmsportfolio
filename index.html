@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval'; frame-src https://www.youtube.com https://www.youtube-nocookie.com; img-src * data:; style-src * 'unsafe-inline'; font-src *; script-src 'self' 'unsafe-inline';">
 <title>Eric Cobey Koy — Monteur Vidéo & Cadreur</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
 <style>
@@ -281,6 +282,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2px;
+    align-items: start;
   }
   .project-card {
     position: relative;
@@ -738,19 +740,31 @@
     </div>
 
     <!-- Anniversaire 1 -->
-    <div class="project-card" data-cat="event">
-      <div class="video-placeholder">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
-        <p>Soirée d'anniversaire</p>
+    <div class="project-card" data-cat="event" onclick="openVideo('ve6Aq9lI4VQ')" style="cursor:pointer;">
+      <img src="https://img.youtube.com/vi/ve6Aq9lI4VQ/maxresdefault.jpg" alt="Soirée Anniversaire" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
+        <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #C9A96E;transition:transform 0.2s;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#C9A96E"><polygon points="6,3 20,12 6,21"/></svg>
+        </div>
       </div>
       <span class="project-badge badge-event">Anniversaire</span>
       <div class="project-overlay">
         <div class="project-cat cat-event">Anniversaire — Événement privé</div>
         <div class="project-name">Soirée Anniversaire</div>
         <div class="project-desc">Reportage vidéo d'une soirée d'anniversaire privée — ambiance, émotions et moments forts.</div>
-        <a href="#" class="project-link">Voir la vidéo →</a>
+        <span class="project-link" style="cursor:pointer;">Voir la vidéo →</span>
       </div>
     </div>
+
+<!-- VIDEO MODAL -->
+<div id="videoModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;">
+  <div style="position:relative;width:90%;max-width:960px;">
+    <button onclick="closeVideo()" style="position:absolute;top:-40px;right:0;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;">✕</button>
+    <div style="position:relative;padding-top:56.25%;">
+      <iframe id="videoFrame" src="" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;"></iframe>
+    </div>
+  </div>
+</div>
 
   </div>
 </section>
@@ -899,6 +913,19 @@
 </footer>
 
 <script>
+function openVideo(id) {
+  const modal = document.getElementById('videoModal');
+  document.getElementById('videoFrame').src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+  modal.style.display = 'flex';
+}
+function closeVideo() {
+  document.getElementById('videoModal').style.display = 'none';
+  document.getElementById('videoFrame').src = '';
+}
+document.getElementById('videoModal').addEventListener('click', function(e) {
+  if (e.target === this) closeVideo();
+});
+
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
