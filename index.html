@@ -336,6 +336,7 @@
   .badge-corporate { color: #FFB800; border-color: #FFB800; background: rgba(255,184,0,0.08); }
   .badge-ugc { color: #FF6B9D; border-color: #FF6B9D; background: rgba(255,107,157,0.08); }
   .badge-ia { color: var(--cyan); border-color: var(--cyan); background: rgba(0,229,255,0.08); }
+  .badge-event { color: #C9A96E; border-color: #C9A96E; background: rgba(201,169,110,0.08); }
   .project-cat {
     font-family: 'Space Mono', monospace;
     font-size: 0.62rem;
@@ -346,6 +347,7 @@
   .cat-corporate { color: #FFB800; }
   .cat-ugc { color: #FF6B9D; }
   .cat-ia { color: var(--cyan); }
+  .cat-event { color: #C9A96E; }
   .project-name {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.4rem;
@@ -610,6 +612,7 @@
     <button class="filter-tab" data-filter="corporate">Corporate & Événementiel</button>
     <button class="filter-tab" data-filter="ugc">UGC & Réseaux Sociaux</button>
     <button class="filter-tab" data-filter="ia">IA & Créatif</button>
+    <button class="filter-tab" data-filter="event">Anniversaires & Mariages</button>
   </div>
 
   <div class="projects-grid">
@@ -715,6 +718,36 @@
         <div class="project-cat cat-ia">IA Vidéo — Animation</div>
         <div class="project-name">Animation IA — Higgsfield</div>
         <div class="project-desc">Animations cinématiques générées avec Higgsfield & Kling 3.0 — exploration créative IA.</div>
+        <a href="#" class="project-link">Voir la vidéo →</a>
+      </div>
+    </div>
+
+    <!-- Mariage 1 -->
+    <div class="project-card" data-cat="event">
+      <div class="video-placeholder">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
+        <p>Film de mariage</p>
+      </div>
+      <span class="project-badge badge-event">Mariage</span>
+      <div class="project-overlay">
+        <div class="project-cat cat-event">Mariage — Film de couple</div>
+        <div class="project-name">Film de Mariage</div>
+        <div class="project-desc">Captation et montage cinématique d'une journée de mariage — du préparatif à la soirée.</div>
+        <a href="#" class="project-link">Voir la vidéo →</a>
+      </div>
+    </div>
+
+    <!-- Anniversaire 1 -->
+    <div class="project-card" data-cat="event">
+      <div class="video-placeholder">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
+        <p>Soirée d'anniversaire</p>
+      </div>
+      <span class="project-badge badge-event">Anniversaire</span>
+      <div class="project-overlay">
+        <div class="project-cat cat-event">Anniversaire — Événement privé</div>
+        <div class="project-name">Soirée Anniversaire</div>
+        <div class="project-desc">Reportage vidéo d'une soirée d'anniversaire privée — ambiance, émotions et moments forts.</div>
         <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
