@@ -292,6 +292,9 @@
     cursor: none;
     transition: opacity 0.3s, transform 0.3s;
   }
+  .project-card.vertical {
+    aspect-ratio: 9/16;
+  }
   .project-card.hidden {
     display: none;
   }
@@ -546,6 +549,102 @@
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    /* Hide custom cursor on mobile */
+    .cursor, .cursor-ring { display: none; }
+    body { cursor: auto; }
+
+    /* Nav */
+    nav {
+      padding: 1rem 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .nav-links {
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a { font-size: 0.7rem; letter-spacing: 1px; }
+
+    /* Hero */
+    .hero { padding: 6rem 1.5rem 4rem; }
+    .hero-name { font-size: clamp(3.5rem, 18vw, 6rem); }
+    .hero-bio { font-size: 0.88rem; }
+    .hero-stats {
+      position: static;
+      margin-top: 2rem;
+      justify-content: flex-start;
+      gap: 2rem;
+    }
+
+    /* Sections */
+    section { padding: 4rem 1.5rem; }
+    .section-title { font-size: 2rem; }
+
+    /* Filter tabs — scrollable horizontal */
+    .filter-tabs {
+      width: 100%;
+      overflow-x: auto;
+      display: flex;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+    .filter-tab {
+      white-space: nowrap;
+      padding: 0.7rem 1.2rem;
+      font-size: 0.62rem;
+    }
+
+    /* Projects grid — 1 column on mobile */
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+    .project-card { aspect-ratio: 16/9; }
+    .project-card.vertical { aspect-ratio: 9/16; }
+    .project-overlay { opacity: 1; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 70%, transparent 100%); }
+
+    /* About */
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .about-left h2 { font-size: 2.5rem; }
+
+    /* Contact */
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .contact-left h2 { font-size: 2.8rem; }
+
+    /* Footer */
+    footer {
+      padding: 1.5rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    /* Video modal */
+    #videoModal > div {
+      width: 95%;
+    }
+
+    /* Showreel */
+    .showreel-wrapper { aspect-ratio: 16/9; }
+
+    /* Buttons */
+    .btn-primary, .btn-ghost { font-size: 0.75rem; padding: 0.8rem 1.8rem; }
+    .hero-cta { flex-wrap: wrap; gap: 1rem; }
+
+    /* Skills grid */
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Tool bars */
+    .tool-label { min-width: 110px; font-size: 0.62rem; }
+  }
 </style>
 </head>
 <body>
@@ -664,8 +763,7 @@
       </div>
     </div>
 
-    <!-- MDC Beauty -->
-    <div class="project-card" data-cat="ugc">
+    <div class="project-card vertical" data-cat="ugc">
       <div class="video-placeholder">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF6B9D" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
         <p>MDC Beauty — Reel</p>
@@ -680,7 +778,7 @@
     </div>
 
     <!-- Ça Graille -->
-    <div class="project-card" data-cat="ugc">
+    <div class="project-card vertical" data-cat="ugc">
       <div class="video-placeholder">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF6B9D" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
         <p>Ça Graille — Restauration</p>
@@ -695,7 +793,7 @@
     </div>
 
     <!-- Dakar City Transport -->
-    <div class="project-card" data-cat="ugc">
+    <div class="project-card vertical" data-cat="ugc">
       <div class="video-placeholder">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF6B9D" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
         <p>Dakar City Transport</p>
@@ -740,8 +838,8 @@
     </div>
 
     <!-- Anniversaire 1 -->
-    <div class="project-card" data-cat="event" onclick="openVideo('ve6Aq9lI4VQ')" style="cursor:pointer;">
-      <img src="https://img.youtube.com/vi/ve6Aq9lI4VQ/maxresdefault.jpg" alt="Soirée Anniversaire" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
+    <div class="project-card" data-cat="event" onclick="openVideo('w2fPZeUhl94')" style="cursor:pointer;">
+      <img src="https://img.youtube.com/vi/w2fPZeUhl94/maxresdefault.jpg" alt="Soirée Anniversaire Ethan" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
         <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #C9A96E;transition:transform 0.2s;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="#C9A96E"><polygon points="6,3 20,12 6,21"/></svg>
@@ -750,8 +848,8 @@
       <span class="project-badge badge-event">Anniversaire</span>
       <div class="project-overlay">
         <div class="project-cat cat-event">Anniversaire — Événement privé</div>
-        <div class="project-name">Soirée Anniversaire</div>
-        <div class="project-desc">Reportage vidéo d'une soirée d'anniversaire privée — ambiance, émotions et moments forts.</div>
+        <div class="project-name">Soirée Anniversaire — Ethan 10 ans</div>
+        <div class="project-desc">Reportage vidéo de la soirée d'anniversaire d'Ethan — ambiance, émotions et moments forts.</div>
         <span class="project-link" style="cursor:pointer;">Voir la vidéo →</span>
       </div>
     </div>
