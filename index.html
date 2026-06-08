@@ -752,7 +752,7 @@
     </div>
 
     <!-- MDC Beauty -->
-    <div class="project-card vertical" data-cat="ugc" onclick="openVideo('socutkb1b54')" style="cursor:pointer;">
+    <div class="project-card vertical hidden" data-cat="ugc" onclick="openVideo('socutkb1b54')" style="cursor:pointer;">
       <img src="https://img.youtube.com/vi/socutkb1b54/maxresdefault.jpg" alt="MDC Beauty" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
         <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #FF6B9D;">
@@ -769,7 +769,7 @@
     </div>
 
     <!-- Ça Graille -->
-    <div class="project-card vertical" data-cat="ugc" onclick="openVideo('3ANsXyukewc')" style="cursor:pointer;">
+    <div class="project-card vertical hidden" data-cat="ugc" onclick="openVideo('3ANsXyukewc')" style="cursor:pointer;">
       <img src="https://img.youtube.com/vi/3ANsXyukewc/maxresdefault.jpg" alt="Ça Graille" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
         <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #FF6B9D;transition:transform 0.2s;">
@@ -786,7 +786,7 @@
     </div>
 
     <!-- Dakar City Transport -->
-    <div class="project-card vertical" data-cat="ugc" onclick="openVideo('xZjAjKolpUo')" style="cursor:pointer;">
+    <div class="project-card vertical hidden" data-cat="ugc" onclick="openVideo('xZjAjKolpUo')" style="cursor:pointer;">
       <img src="https://img.youtube.com/vi/xZjAjKolpUo/maxresdefault.jpg" alt="Dakar City Transport" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
         <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #FF6B9D;transition:transform 0.2s;">
@@ -803,7 +803,7 @@
     </div>
 
     <!-- Kavel Rynn IA -->
-    <div class="project-card" data-cat="ia" onclick="openVideo('2FcOuf_90Bk')" style="cursor:pointer;">
+    <div class="project-card hidden" data-cat="ia" onclick="openVideo('2FcOuf_90Bk')" style="cursor:pointer;">
       <img src="https://img.youtube.com/vi/2FcOuf_90Bk/maxresdefault.jpg" alt="Kavel Rynn IA" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
         <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #00E5FF;">
@@ -820,7 +820,7 @@
     </div>
 
     <!-- Anniversaire 1 -->
-    <div class="project-card" data-cat="event" onclick="openVideo('ve6Aq9lI4VQ')" style="cursor:pointer;">
+    <div class="project-card hidden" data-cat="event" onclick="openVideo('ve6Aq9lI4VQ')" style="cursor:pointer;">
       <img src="https://img.youtube.com/vi/ve6Aq9lI4VQ/maxresdefault.jpg" alt="Soirée Anniversaire" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
         <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #C9A96E;transition:transform 0.2s;">
@@ -837,7 +837,7 @@
     </div>
 
     <!-- Anniversaire 2 -->
-    <div class="project-card" data-cat="event" onclick="openVideo('w2fPZeUhl94')" style="cursor:pointer;">
+    <div class="project-card hidden" data-cat="event" onclick="openVideo('w2fPZeUhl94')" style="cursor:pointer;">
       <img src="https://img.youtube.com/vi/w2fPZeUhl94/maxresdefault.jpg" alt="Soirée Anniversaire Ethan 10 ans" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
         <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #C9A96E;transition:transform 0.2s;">
@@ -1068,6 +1068,7 @@ window.addEventListener('DOMContentLoaded', () => {
       card.classList.add('hidden');
     }
   });
+  document.querySelector('.projects-grid').classList.remove('ugc-grid');
 });
 </script>
 </body>
