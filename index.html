@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval'; frame-src https://www.youtube.com https://www.youtube-nocookie.com; img-src * data:; style-src * 'unsafe-inline'; font-src *; script-src 'self' 'unsafe-inline';">
 <title>Eric Cobey Koy — Monteur Vidéo & Cadreur</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
 <style>
@@ -282,10 +281,6 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2px;
-    align-items: start;
-  }
-  .projects-grid.ugc-grid {
-    grid-template-columns: repeat(4, 1fr);
   }
   .project-card {
     position: relative;
@@ -294,10 +289,6 @@
     background: var(--bg3);
     cursor: none;
     transition: opacity 0.3s, transform 0.3s;
-  }
-  .project-card.vertical {
-    aspect-ratio: 9/16;
-    max-height: 400px;
   }
   .project-card.hidden {
     display: none;
@@ -345,7 +336,6 @@
   .badge-corporate { color: #FFB800; border-color: #FFB800; background: rgba(255,184,0,0.08); }
   .badge-ugc { color: #FF6B9D; border-color: #FF6B9D; background: rgba(255,107,157,0.08); }
   .badge-ia { color: var(--cyan); border-color: var(--cyan); background: rgba(0,229,255,0.08); }
-  .badge-event { color: #C9A96E; border-color: #C9A96E; background: rgba(201,169,110,0.08); }
   .project-cat {
     font-family: 'Space Mono', monospace;
     font-size: 0.62rem;
@@ -356,7 +346,6 @@
   .cat-corporate { color: #FFB800; }
   .cat-ugc { color: #FF6B9D; }
   .cat-ia { color: var(--cyan); }
-  .cat-event { color: #C9A96E; }
   .project-name {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.4rem;
@@ -442,31 +431,27 @@
     margin-bottom: 1.2rem;
     font-weight: 300;
   }
-  .tool-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+  .tool-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .tool-row:last-child { border-bottom: none; }
   .tool-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+    color: var(--text);
+    flex-shrink: 0;
+  }
+  .tool-tags {
     font-family: 'Space Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    min-width: 140px;
-  }
-  .tool-bar-bg {
-    flex: 1; height: 2px;
-    background: rgba(255,255,255,0.06);
-    position: relative;
-  }
-  .tool-bar-fill {
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    background: var(--cyan);
-    transition: width 1s ease;
-  }
-  .tool-pct {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     color: var(--cyan);
-    min-width: 36px;
+    letter-spacing: 0.5px;
     text-align: right;
   }
 
@@ -553,102 +538,6 @@
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
-  /* MOBILE RESPONSIVE */
-  @media (max-width: 768px) {
-    /* Hide custom cursor on mobile */
-    .cursor, .cursor-ring { display: none; }
-    body { cursor: auto; }
-
-    /* Nav */
-    nav {
-      padding: 1rem 1.5rem;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .nav-links {
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-    .nav-links a { font-size: 0.7rem; letter-spacing: 1px; }
-
-    /* Hero */
-    .hero { padding: 6rem 1.5rem 4rem; }
-    .hero-name { font-size: clamp(3.5rem, 18vw, 6rem); }
-    .hero-bio { font-size: 0.88rem; }
-    .hero-stats {
-      position: static;
-      margin-top: 2rem;
-      justify-content: flex-start;
-      gap: 2rem;
-    }
-
-    /* Sections */
-    section { padding: 4rem 1.5rem; }
-    .section-title { font-size: 2rem; }
-
-    /* Filter tabs — scrollable horizontal */
-    .filter-tabs {
-      width: 100%;
-      overflow-x: auto;
-      display: flex;
-      flex-wrap: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
-    .filter-tab {
-      white-space: nowrap;
-      padding: 0.7rem 1.2rem;
-      font-size: 0.62rem;
-    }
-
-    /* Projects grid — 1 column on mobile */
-    .projects-grid {
-      grid-template-columns: 1fr;
-    }
-    .project-card { aspect-ratio: 16/9; }
-    .project-card.vertical { aspect-ratio: 9/16; }
-    .project-overlay { opacity: 1; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 70%, transparent 100%); }
-
-    /* About */
-    .about-grid {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-    .about-left h2 { font-size: 2.5rem; }
-
-    /* Contact */
-    .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-    .contact-left h2 { font-size: 2.8rem; }
-
-    /* Footer */
-    footer {
-      padding: 1.5rem;
-      flex-direction: column;
-      gap: 0.5rem;
-      text-align: center;
-    }
-
-    /* Video modal */
-    #videoModal > div {
-      width: 95%;
-    }
-
-    /* Showreel */
-    .showreel-wrapper { aspect-ratio: 16/9; }
-
-    /* Buttons */
-    .btn-primary, .btn-ghost { font-size: 0.75rem; padding: 0.8rem 1.8rem; }
-    .hero-cta { flex-wrap: wrap; gap: 1rem; }
-
-    /* Skills grid */
-    .skills-grid { grid-template-columns: repeat(2, 1fr); }
-
-    /* Tool bars */
-    .tool-label { min-width: 110px; font-size: 0.62rem; }
-  }
 </style>
 </head>
 <body>
@@ -659,6 +548,7 @@
 <nav>
   <a href="#" class="nav-logo">ECK10 FILMS</a>
   <ul class="nav-links">
+    <li><a href="#showreel">Showreel</a></li>
     <li><a href="#projets">Projets</a></li>
     <li><a href="#about">Profil</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -683,6 +573,26 @@
   </div>
 </section>
 
+<!-- SHOWREEL -->
+<section class="showreel-section" id="showreel">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Showreel 2025</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="showreel-wrapper" id="showreelWrapper">
+    <div class="showreel-inner">
+      <div class="showreel-play" id="showreelPlay">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <polygon points="6,3 20,12 6,21" fill="#00E5FF"/>
+        </svg>
+      </div>
+      <div class="showreel-label">ECK10 FILMS — Showreel 2025</div>
+      <div class="showreel-hint">// Clique pour ajouter ton lien YouTube</div>
+    </div>
+  </div>
+</section>
+
 <!-- PROJETS -->
 <section id="projets">
   <div class="section-header">
@@ -692,176 +602,118 @@
   </div>
 
   <div class="filter-tabs">
-    <button class="filter-tab active" data-filter="corporate">Corporate & Événementiel</button>
+    <button class="filter-tab active" data-filter="all">Tous</button>
+    <button class="filter-tab" data-filter="corporate">Corporate & Événementiel</button>
     <button class="filter-tab" data-filter="ugc">UGC & Réseaux Sociaux</button>
     <button class="filter-tab" data-filter="ia">IA & Créatif</button>
-    <button class="filter-tab" data-filter="event">Anniversaires & Mariages</button>
   </div>
 
   <div class="projects-grid">
 
     <!-- Dragon Rouge -->
-    <div class="project-card" data-cat="corporate" onclick="openVideo('cyOyAzsyJUc')" style="cursor:pointer;">
-      <img src="https://img.youtube.com/vi/cyOyAzsyJUc/maxresdefault.jpg" alt="Dragon Rouge Paris" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
-        <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #FFB800;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFB800"><polygon points="6,3 20,12 6,21"/></svg>
-        </div>
+    <div class="project-card" data-cat="corporate">
+      <div class="video-placeholder">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
+        <p>Dragon Rouge Paris</p>
       </div>
       <span class="project-badge badge-corporate">Corporate</span>
       <div class="project-overlay">
         <div class="project-cat cat-corporate">Corporate — Événementiel</div>
         <div class="project-name">Dragon Rouge Paris — 40 ans</div>
         <div class="project-desc">Captation et montage de la soirée anniversaire d'une agence de renommée mondiale.</div>
-        <span class="project-link" style="cursor:pointer;">Voir la vidéo →</span>
+        <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
 
     <!-- Staff Lòt Jan -->
-    <div class="project-card" data-cat="corporate" onclick="openVideo('PELiCXxGEGs')" style="cursor:pointer;">
-      <img src="https://img.youtube.com/vi/PELiCXxGEGs/maxresdefault.jpg" alt="Oswald & Harmonik" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
-        <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #FFB800;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFB800"><polygon points="6,3 20,12 6,21"/></svg>
-        </div>
+    <div class="project-card" data-cat="corporate">
+      <div class="video-placeholder">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
+        <p>Staff Lòt Jan — Oswald & Harmonik</p>
       </div>
       <span class="project-badge badge-corporate">Live</span>
       <div class="project-overlay">
         <div class="project-cat cat-corporate">Événementiel — Concert</div>
         <div class="project-name">Staff Lòt Jan — Oswald & Harmonik</div>
         <div class="project-desc">Reportage complet du concert : captation multi-caméra, montage et sous-titrage.</div>
-        <span class="project-link" style="cursor:pointer;">Voir la vidéo →</span>
+        <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
 
     <!-- Cabinet dentaire -->
-    <div class="project-card" data-cat="corporate" onclick="openVideo('md5dhU6UDQU')" style="cursor:pointer;">
-      <img src="https://img.youtube.com/vi/md5dhU6UDQU/maxresdefault.jpg" alt="Cabinet Dentaire Gambetta" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
-        <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #FFB800;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFB800"><polygon points="6,3 20,12 6,21"/></svg>
-        </div>
+    <div class="project-card" data-cat="corporate">
+      <div class="video-placeholder">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
+        <p>Cabinet Dentaire Gambetta</p>
       </div>
       <span class="project-badge badge-corporate">Corporate</span>
       <div class="project-overlay">
         <div class="project-cat cat-corporate">Corporate — Services</div>
         <div class="project-name">Cabinet Dentaire Gambetta</div>
         <div class="project-desc">Vidéo de présentation des services et de l'expertise du cabinet à Courbevoie.</div>
-        <span class="project-link" style="cursor:pointer;">Voir la vidéo →</span>
+        <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
 
     <!-- MDC Beauty -->
-    <div class="project-card vertical hidden" data-cat="ugc" onclick="openVideo('socutkb1b54')" style="cursor:pointer;">
-      <img src="https://img.youtube.com/vi/socutkb1b54/maxresdefault.jpg" alt="MDC Beauty" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
-        <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #FF6B9D;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#FF6B9D"><polygon points="6,3 20,12 6,21"/></svg>
-        </div>
+    <div class="project-card" data-cat="ugc">
+      <div class="video-placeholder">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF6B9D" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
+        <p>MDC Beauty — Reel</p>
       </div>
       <span class="project-badge badge-ugc">UGC</span>
       <div class="project-overlay">
         <div class="project-cat cat-ugc">Beauté — UGC / Reels</div>
         <div class="project-name">MDC Beauty</div>
         <div class="project-desc">Reel Instagram UGC pour la marque : contenu authentique et engageant pour les réseaux sociaux.</div>
-        <span class="project-link" style="cursor:pointer;">Voir la vidéo →</span>
+        <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
 
     <!-- Ça Graille -->
-    <div class="project-card vertical hidden" data-cat="ugc" onclick="openVideo('3ANsXyukewc')" style="cursor:pointer;">
-      <img src="https://img.youtube.com/vi/3ANsXyukewc/maxresdefault.jpg" alt="Ça Graille" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
-        <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #FF6B9D;transition:transform 0.2s;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#FF6B9D"><polygon points="6,3 20,12 6,21"/></svg>
-        </div>
+    <div class="project-card" data-cat="ugc">
+      <div class="video-placeholder">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF6B9D" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
+        <p>Ça Graille — Restauration</p>
       </div>
       <span class="project-badge badge-ugc">UGC</span>
       <div class="project-overlay">
         <div class="project-cat cat-ugc">Restauration — UGC</div>
         <div class="project-name">Ça Graille</div>
         <div class="project-desc">Contenu UGC pour le restaurant : ambiance, plats et storytelling visuel pour les réseaux sociaux.</div>
-        <span class="project-link" style="cursor:pointer;">Voir la vidéo →</span>
+        <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
 
     <!-- Dakar City Transport -->
-    <div class="project-card vertical hidden" data-cat="ugc" onclick="openVideo('xZjAjKolpUo')" style="cursor:pointer;">
-      <img src="https://img.youtube.com/vi/xZjAjKolpUo/maxresdefault.jpg" alt="Dakar City Transport" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
-        <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #FF6B9D;transition:transform 0.2s;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#FF6B9D"><polygon points="6,3 20,12 6,21"/></svg>
-        </div>
+    <div class="project-card" data-cat="ugc">
+      <div class="video-placeholder">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF6B9D" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
+        <p>Dakar City Transport</p>
       </div>
       <span class="project-badge badge-ugc">UGC</span>
       <div class="project-overlay">
         <div class="project-cat cat-ugc">Transport — UGC / Social</div>
         <div class="project-name">Dakar City Transport</div>
         <div class="project-desc">Création de contenus UGC et vidéos promotionnelles pour une société de fret international.</div>
-        <span class="project-link" style="cursor:pointer;">Voir la vidéo →</span>
+        <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
 
-    <!-- Kavel Rynn IA -->
-    <div class="project-card hidden" data-cat="ia" onclick="openVideo('2FcOuf_90Bk')" style="cursor:pointer;">
-      <img src="https://img.youtube.com/vi/2FcOuf_90Bk/maxresdefault.jpg" alt="Kavel Rynn IA" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
-        <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #00E5FF;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#00E5FF"><polygon points="6,3 20,12 6,21"/></svg>
-        </div>
+    <!-- Higgsfield IA -->
+    <div class="project-card" data-cat="ia">
+      <div class="video-placeholder">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
+        <p>Animation IA — Higgsfield</p>
       </div>
       <span class="project-badge badge-ia">IA</span>
       <div class="project-overlay">
-        <div class="project-cat cat-ia">IA Vidéo — Court-métrage</div>
-        <div class="project-name">Kavel Rynn — Film IA</div>
-        <div class="project-desc">Court-métrage cinématique de 40 secondes généré avec Higgsfield & Kling 3.0.</div>
-        <span class="project-link" style="cursor:pointer;">Voir la vidéo →</span>
+        <div class="project-cat cat-ia">IA Vidéo — Animation</div>
+        <div class="project-name">Animation IA — Higgsfield</div>
+        <div class="project-desc">Animations cinématiques générées avec Higgsfield & Kling 3.0 — exploration créative IA.</div>
+        <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
-
-    <!-- Anniversaire 1 -->
-    <div class="project-card hidden" data-cat="event" onclick="openVideo('ve6Aq9lI4VQ')" style="cursor:pointer;">
-      <img src="https://img.youtube.com/vi/ve6Aq9lI4VQ/maxresdefault.jpg" alt="Soirée Anniversaire" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
-        <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #C9A96E;transition:transform 0.2s;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#C9A96E"><polygon points="6,3 20,12 6,21"/></svg>
-        </div>
-      </div>
-      <span class="project-badge badge-event">Anniversaire</span>
-      <div class="project-overlay">
-        <div class="project-cat cat-event">Anniversaire — Événement privé</div>
-        <div class="project-name">Soirée Anniversaire</div>
-        <div class="project-desc">Reportage vidéo d'une soirée d'anniversaire privée — ambiance, émotions et moments forts.</div>
-        <span class="project-link" style="cursor:pointer;">Voir la vidéo →</span>
-      </div>
-    </div>
-
-    <!-- Anniversaire 2 -->
-    <div class="project-card hidden" data-cat="event" onclick="openVideo('w2fPZeUhl94')" style="cursor:pointer;">
-      <img src="https://img.youtube.com/vi/w2fPZeUhl94/maxresdefault.jpg" alt="Soirée Anniversaire Ethan 10 ans" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
-        <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #C9A96E;transition:transform 0.2s;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#C9A96E"><polygon points="6,3 20,12 6,21"/></svg>
-        </div>
-      </div>
-      <span class="project-badge badge-event">Anniversaire</span>
-      <div class="project-overlay">
-        <div class="project-cat cat-event">Anniversaire — Événement privé</div>
-        <div class="project-name">Soirée Anniversaire — Ethan 10 ans</div>
-        <div class="project-desc">Reportage vidéo de la soirée d'anniversaire d'Ethan — ambiance, émotions et moments forts.</div>
-        <span class="project-link" style="cursor:pointer;">Voir la vidéo →</span>
-      </div>
-    </div>
-
-<!-- VIDEO MODAL -->
-<div id="videoModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;">
-  <div style="position:relative;width:90%;max-width:960px;">
-    <button onclick="closeVideo()" style="position:absolute;top:-40px;right:0;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;">✕</button>
-    <div style="position:relative;padding-top:56.25%;">
-      <iframe id="videoFrame" src="" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;"></iframe>
-    </div>
-  </div>
-</div>
 
   </div>
 </section>
@@ -922,36 +774,12 @@
       <p>Polyvalent, autonome, respect des délais. Disponible pour CDI, CDD ou missions freelance en Île-de-France.</p>
     </div>
     <div class="about-right">
-      <div class="tool-row">
-        <span class="tool-label">Premiere Pro</span>
-        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:95%"></div></div>
-        <span class="tool-pct">95%</span>
-      </div>
-      <div class="tool-row">
-        <span class="tool-label">After Effects</span>
-        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:85%"></div></div>
-        <span class="tool-pct">85%</span>
-      </div>
-      <div class="tool-row">
-        <span class="tool-label">Étalonnage</span>
-        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:80%"></div></div>
-        <span class="tool-pct">80%</span>
-      </div>
-      <div class="tool-row">
-        <span class="tool-label">Higgsfield IA</span>
-        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:90%"></div></div>
-        <span class="tool-pct">90%</span>
-      </div>
-      <div class="tool-row">
-        <span class="tool-label">Captation Sony</span>
-        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:88%"></div></div>
-        <span class="tool-pct">88%</span>
-      </div>
-      <div class="tool-row">
-        <span class="tool-label">UGC / Reels</span>
-        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:92%"></div></div>
-        <span class="tool-pct">92%</span>
-      </div>
+      <div class="tool-row"><span class="tool-label">Montage</span><span class="tool-tags">Premiere Pro · Capcut</span></div>
+      <div class="tool-row"><span class="tool-label">Motion Design</span><span class="tool-tags">After Effects</span></div>
+      <div class="tool-row"><span class="tool-label">Étalonnage</span><span class="tool-tags">Photoshop · Lightroom</span></div>
+      <div class="tool-row"><span class="tool-label">IA Vidéo</span><span class="tool-tags">Higgsfield · Kling 3.0 · Seedance</span></div>
+      <div class="tool-row"><span class="tool-label">Captation</span><span class="tool-tags">Sony · Canon · DJI · Insta360</span></div>
+      <div class="tool-row"><span class="tool-label">UGC / Réseaux</span><span class="tool-tags">Reels · TikTok · YouTube Shorts</span></div>
     </div>
   </div>
 </section>
@@ -977,27 +805,29 @@
           <span>06 13 30 40 11</span>
         </div>
         <div class="contact-item">
+          <div class="contact-item-icon">🌐</div>
+          <span>ericcobeykoy.myportfolio.com</span>
+        </div>
+        <div class="contact-item">
           <div class="contact-item-icon">📍</div>
           <span>Île-de-France — France</span>
         </div>
       </div>
     </div>
     <div class="contact-right">
-      <form action="https://formspree.io/f/mwvjkgdy" method="POST" style="display:flex;flex-direction:column;gap:1rem;">
       <div class="form-group">
         <label class="form-label">Nom</label>
-        <input type="text" name="nom" class="form-input" placeholder="Votre nom" required>
+        <input type="text" class="form-input" placeholder="Votre nom">
       </div>
       <div class="form-group">
         <label class="form-label">Email</label>
-        <input type="email" name="email" class="form-input" placeholder="votre@email.com" required>
+        <input type="email" class="form-input" placeholder="votre@email.com">
       </div>
       <div class="form-group">
         <label class="form-label">Message</label>
-        <textarea name="message" class="form-textarea" placeholder="Décrivez votre projet..." required></textarea>
+        <textarea class="form-textarea" placeholder="Décrivez votre projet..."></textarea>
       </div>
-      <button type="submit" class="form-submit">Envoyer le message</button>
-      </form>
+      <button class="form-submit">Envoyer le message</button>
     </div>
   </div>
 </section>
@@ -1008,19 +838,6 @@
 </footer>
 
 <script>
-function openVideo(id) {
-  const modal = document.getElementById('videoModal');
-  document.getElementById('videoFrame').src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&showinfo=0';
-  modal.style.display = 'flex';
-}
-function closeVideo() {
-  document.getElementById('videoModal').style.display = 'none';
-  document.getElementById('videoFrame').src = '';
-}
-document.getElementById('videoModal').addEventListener('click', function(e) {
-  if (e.target === this) closeVideo();
-});
-
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
@@ -1034,15 +851,23 @@ function animCursor() {
 }
 animCursor();
 
+document.getElementById('showreelPlay').addEventListener('click', () => {
+  const url = prompt('Colle ton lien YouTube ici :');
+  if (!url) return;
+  const match = url.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  if (match) {
+    document.getElementById('showreelWrapper').innerHTML =
+      `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${match[1]}?autoplay=1" frameborder="0" allow="autoplay;fullscreen" allowfullscreen style="display:block;"></iframe>`;
+  }
+});
+
 document.querySelectorAll('.filter-tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
     const filter = tab.dataset.filter;
-    const grid = document.querySelector('.projects-grid');
-    grid.classList.toggle('ugc-grid', filter === 'ugc');
     document.querySelectorAll('.project-card').forEach(card => {
-      if (card.dataset.cat === filter) {
+      if (filter === 'all' || card.dataset.cat === filter) {
         card.classList.remove('hidden');
       } else {
         card.classList.add('hidden');
@@ -1051,14 +876,17 @@ document.querySelectorAll('.filter-tab').forEach(tab => {
   });
 });
 
-// Affiche Corporate par défaut au chargement
-window.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.project-card').forEach(card => {
-    if (card.dataset.cat !== 'corporate') {
-      card.classList.add('hidden');
+document.querySelectorAll('.project-link').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const url = prompt('Colle le lien YouTube de ce projet :');
+    if (!url) return;
+    const match = url.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+    if (match) {
+      const thumb = link.closest('.project-card').querySelector('.video-placeholder');
+      thumb.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${match[1]}?autoplay=1" frameborder="0" allow="autoplay;fullscreen" allowfullscreen style="display:block;"></iframe>`;
     }
   });
-  document.querySelector('.projects-grid').classList.remove('ugc-grid');
 });
 </script>
 </body>
