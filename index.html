@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="frame-src https://www.youtube-nocookie.com; img-src 'self' data: https:; default-src 'self' 'unsafe-inline' https:;">
+<meta http-equiv="Content-Security-Policy" content="frame-src https://www.youtube-nocookie.com https://www.tiktok.com; img-src 'self' data: https:; default-src 'self' 'unsafe-inline' https:;">
 <title>Eric Cobey Koy — Monteur Vidéo & Cadreur</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
 <style>
@@ -210,47 +210,6 @@
   }
   .section-line { flex: 1; height: 1px; background: var(--border); }
 
-  /* SHOWREEL */
-  .showreel-section { background: var(--bg2); }
-  .showreel-wrapper {
-    position: relative;
-    aspect-ratio: 16/9;
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    overflow: hidden;
-  }
-  .showreel-inner {
-    width: 100%; height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .showreel-play {
-    width: 80px; height: 80px;
-    border: 2px solid var(--cyan);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: none;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .showreel-play:hover { background: rgba(0,229,255,0.1); transform: scale(1.1); }
-  .showreel-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 4px;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-  .showreel-hint {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.62rem;
-    color: rgba(0,229,255,0.35);
-    letter-spacing: 2px;
-  }
 
   /* FILTER TABS */
   .filter-tabs {
@@ -555,7 +514,6 @@
 <nav>
   <a href="#" class="nav-logo">ECK10 FILMS</a>
   <ul class="nav-links">
-    <li><a href="#showreel">Showreel</a></li>
     <li><a href="#projets">Projets</a></li>
     <li><a href="#about">Profil</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -574,36 +532,16 @@
     <a href="#contact" class="btn-ghost">Me contacter</a>
   </div>
   <div class="hero-stats">
-    <div class="stat"><div class="stat-num">2+</div><div class="stat-label">Ans d'expérience</div></div>
+    <div class="stat"><div class="stat-num">4+</div><div class="stat-label">Ans d'expérience</div></div>
     <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Projets livrés</div></div>
     <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Clients actifs</div></div>
-  </div>
-</section>
-
-<!-- SHOWREEL -->
-<section class="showreel-section" id="showreel">
-  <div class="section-header">
-    <span class="section-num">01</span>
-    <h2 class="section-title">Showreel 2025</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="showreel-wrapper" id="showreelWrapper">
-    <div class="showreel-inner">
-      <div class="showreel-play" id="showreelPlay">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <polygon points="6,3 20,12 6,21" fill="#00E5FF"/>
-        </svg>
-      </div>
-      <div class="showreel-label">ECK10 FILMS — Showreel 2025</div>
-      <div class="showreel-hint">// Clique pour ajouter ton lien YouTube</div>
-    </div>
   </div>
 </section>
 
 <!-- PROJETS -->
 <section id="projets">
   <div class="section-header">
-    <span class="section-num">02</span>
+    <span class="section-num">01</span>
     <h2 class="section-title">Projets</h2>
     <div class="section-line"></div>
   </div>
@@ -663,31 +601,23 @@
 
     <!-- Ça Graille -->
     <div class="project-card" data-cat="ugc">
-      <div class="video-placeholder">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF6B9D" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
-        <p>Ça Graille — Restauration</p>
-      </div>
+      <iframe class="video-embed" width="100%" height="100%" src="https://www.tiktok.com/player/v1/7618263138592361760" title="Ça Graille" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block;"></iframe>
       <span class="project-badge badge-ugc">UGC</span>
       <div class="project-overlay">
         <div class="project-cat cat-ugc">Restauration — UGC</div>
         <div class="project-name">Ça Graille</div>
         <div class="project-desc">Contenu UGC pour le restaurant : ambiance, plats et storytelling visuel pour les réseaux sociaux.</div>
-        <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
 
     <!-- Dakar City Transport -->
     <div class="project-card" data-cat="ugc">
-      <div class="video-placeholder">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF6B9D" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
-        <p>Dakar City Transport</p>
-      </div>
+      <iframe class="video-embed" width="100%" height="100%" src="https://www.tiktok.com/player/v1/7493863307586194710" title="Dakar City Transport" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block;"></iframe>
       <span class="project-badge badge-ugc">UGC</span>
       <div class="project-overlay">
         <div class="project-cat cat-ugc">Transport — UGC / Social</div>
         <div class="project-name">Dakar City Transport</div>
         <div class="project-desc">Création de contenus UGC et vidéos promotionnelles pour une société de fret international.</div>
-        <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
 
@@ -708,7 +638,7 @@
 <!-- COMPÉTENCES -->
 <section class="skills-section">
   <div class="section-header">
-    <span class="section-num">03</span>
+    <span class="section-num">02</span>
     <h2 class="section-title">Compétences</h2>
     <div class="section-line"></div>
   </div>
@@ -749,7 +679,7 @@
 <!-- PROFIL -->
 <section id="about">
   <div class="section-header">
-    <span class="section-num">04</span>
+    <span class="section-num">03</span>
     <h2 class="section-title">Profil</h2>
     <div class="section-line"></div>
   </div>
@@ -798,7 +728,7 @@
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
   <div class="section-header">
-    <span class="section-num">05</span>
+    <span class="section-num">04</span>
     <h2 class="section-title">Contact</h2>
     <div class="section-line"></div>
   </div>
@@ -861,16 +791,6 @@ function animCursor() {
   requestAnimationFrame(animCursor);
 }
 animCursor();
-
-document.getElementById('showreelPlay').addEventListener('click', () => {
-  const url = prompt('Colle ton lien YouTube ici :');
-  if (!url) return;
-  const match = url.match(/(?:v=|youtu\.be\/|shorts\/)([a-zA-Z0-9_-]{11})/);
-  if (match) {
-    document.getElementById('showreelWrapper').innerHTML =
-      `<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/${match[1]}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block;"></iframe>`;
-  }
-});
 
 document.querySelectorAll('.filter-tab').forEach(tab => {
   tab.addEventListener('click', () => {
