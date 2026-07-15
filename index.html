@@ -262,8 +262,7 @@
     gap: 0.8rem;
   }
   .video-placeholder svg { opacity: 0.25; }
-  .video-embed { border: none; pointer-events: none; }
-  .project-card:hover .video-embed { pointer-events: auto; }
+  .video-embed { border: none; }
   .video-placeholder p {
     font-family: 'Space Mono', monospace;
     font-size: 0.6rem;
@@ -283,7 +282,9 @@
     padding: 1.5rem;
     opacity: 0;
     transition: opacity 0.3s;
+    pointer-events: none;
   }
+  .project-overlay a { pointer-events: auto; }
   .project-card:hover .project-overlay { opacity: 1; }
   .project-badge {
     position: absolute;
