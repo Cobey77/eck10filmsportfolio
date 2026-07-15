@@ -298,6 +298,26 @@
   .badge-corporate { color: #FFB800; border-color: #FFB800; background: rgba(255,184,0,0.08); }
   .badge-ugc { color: #FF6B9D; border-color: #FF6B9D; background: rgba(255,107,157,0.08); }
   .badge-ia { color: var(--cyan); border-color: var(--cyan); background: rgba(0,229,255,0.08); }
+  .badge-tiktok { color: #FF0050; border-color: #FF0050; background: rgba(255,0,80,0.08); }
+  .tiktok-thumb {
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a12 100%);
+    text-decoration: none;
+    cursor: none;
+  }
+  .tiktok-thumb-icon {
+    width: 64px; height: 64px;
+    border: 2px solid #FF0050;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+  }
+  .project-card:hover .tiktok-thumb-icon { transform: scale(1.1); }
   .project-cat {
     font-family: 'Space Mono', monospace;
     font-size: 0.62rem;
@@ -601,23 +621,33 @@
 
     <!-- Ça Graille -->
     <div class="project-card" data-cat="ugc">
-      <iframe class="video-embed" width="100%" height="100%" src="https://www.tiktok.com/player/v1/7618263138592361760" title="Ça Graille" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block;"></iframe>
-      <span class="project-badge badge-ugc">UGC</span>
+      <a class="tiktok-thumb" href="https://www.tiktok.com/@ca.graille/video/7618263138592361760" target="_blank" rel="noopener">
+        <div class="tiktok-thumb-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF0050"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg>
+        </div>
+      </a>
+      <span class="project-badge badge-tiktok">TikTok</span>
       <div class="project-overlay">
         <div class="project-cat cat-ugc">Restauration — UGC</div>
         <div class="project-name">Ça Graille</div>
         <div class="project-desc">Contenu UGC pour le restaurant : ambiance, plats et storytelling visuel pour les réseaux sociaux.</div>
+        <a href="https://www.tiktok.com/@ca.graille/video/7618263138592361760" target="_blank" rel="noopener" class="project-link">Voir sur TikTok →</a>
       </div>
     </div>
 
     <!-- Dakar City Transport -->
     <div class="project-card" data-cat="ugc">
-      <iframe class="video-embed" width="100%" height="100%" src="https://www.tiktok.com/player/v1/7493863307586194710" title="Dakar City Transport" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block;"></iframe>
-      <span class="project-badge badge-ugc">UGC</span>
+      <a class="tiktok-thumb" href="https://www.tiktok.com/@dakar_ct/video/7493863307586194710" target="_blank" rel="noopener">
+        <div class="tiktok-thumb-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF0050"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg>
+        </div>
+      </a>
+      <span class="project-badge badge-tiktok">TikTok</span>
       <div class="project-overlay">
         <div class="project-cat cat-ugc">Transport — UGC / Social</div>
         <div class="project-name">Dakar City Transport</div>
         <div class="project-desc">Création de contenus UGC et vidéos promotionnelles pour une société de fret international.</div>
+        <a href="https://www.tiktok.com/@dakar_ct/video/7493863307586194710" target="_blank" rel="noopener" class="project-link">Voir sur TikTok →</a>
       </div>
     </div>
 
@@ -808,6 +838,7 @@ document.querySelectorAll('.filter-tab').forEach(tab => {
 });
 
 document.querySelectorAll('.project-link').forEach(link => {
+  if (link.getAttribute('href') !== '#') return;
   link.addEventListener('click', e => {
     e.preventDefault();
     const url = prompt('Colle le lien YouTube de ce projet :');
