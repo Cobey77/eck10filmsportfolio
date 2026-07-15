@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="frame-src https://www.youtube-nocookie.com; img-src 'self' data: https:; default-src 'self' 'unsafe-inline' https:;">
 <title>Eric Cobey Koy — Monteur Vidéo & Cadreur</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
 <style>
@@ -302,6 +303,8 @@
     gap: 0.8rem;
   }
   .video-placeholder svg { opacity: 0.25; }
+  .video-embed { border: none; pointer-events: none; }
+  .project-card:hover .video-embed { pointer-events: auto; }
   .video-placeholder p {
     font-family: 'Space Mono', monospace;
     font-size: 0.6rem;
@@ -431,27 +434,31 @@
     margin-bottom: 1.2rem;
     font-weight: 300;
   }
-  .tool-row {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .tool-row:last-child { border-bottom: none; }
+  .tool-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
   .tool-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 1.5px;
-    color: var(--text);
-    flex-shrink: 0;
-  }
-  .tool-tags {
     font-family: 'Space Mono', monospace;
-    font-size: 0.72rem;
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    min-width: 140px;
+  }
+  .tool-bar-bg {
+    flex: 1; height: 2px;
+    background: rgba(255,255,255,0.06);
+    position: relative;
+  }
+  .tool-bar-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    background: var(--cyan);
+    transition: width 1s ease;
+  }
+  .tool-pct {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
     color: var(--cyan);
-    letter-spacing: 0.5px;
+    min-width: 36px;
     text-align: right;
   }
 
@@ -612,61 +619,45 @@
 
     <!-- Dragon Rouge -->
     <div class="project-card" data-cat="corporate">
-      <div class="video-placeholder">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
-        <p>Dragon Rouge Paris</p>
-      </div>
+      <iframe class="video-embed" width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/cyOyAzsyJUc" title="Dragon Rouge Paris — 40 ans" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block;"></iframe>
       <span class="project-badge badge-corporate">Corporate</span>
       <div class="project-overlay">
         <div class="project-cat cat-corporate">Corporate — Événementiel</div>
         <div class="project-name">Dragon Rouge Paris — 40 ans</div>
         <div class="project-desc">Captation et montage de la soirée anniversaire d'une agence de renommée mondiale.</div>
-        <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
 
     <!-- Staff Lòt Jan -->
     <div class="project-card" data-cat="corporate">
-      <div class="video-placeholder">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
-        <p>Staff Lòt Jan — Oswald & Harmonik</p>
-      </div>
+      <iframe class="video-embed" width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/PELiCXxGEGs" title="Staff Lòt Jan — Oswald & Harmonik" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block;"></iframe>
       <span class="project-badge badge-corporate">Live</span>
       <div class="project-overlay">
         <div class="project-cat cat-corporate">Événementiel — Concert</div>
         <div class="project-name">Staff Lòt Jan — Oswald & Harmonik</div>
         <div class="project-desc">Reportage complet du concert : captation multi-caméra, montage et sous-titrage.</div>
-        <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
 
     <!-- Cabinet dentaire -->
     <div class="project-card" data-cat="corporate">
-      <div class="video-placeholder">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
-        <p>Cabinet Dentaire Gambetta</p>
-      </div>
+      <iframe class="video-embed" width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/md5dhU6UDQU" title="Cabinet Dentaire Gambetta" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block;"></iframe>
       <span class="project-badge badge-corporate">Corporate</span>
       <div class="project-overlay">
         <div class="project-cat cat-corporate">Corporate — Services</div>
         <div class="project-name">Cabinet Dentaire Gambetta</div>
         <div class="project-desc">Vidéo de présentation des services et de l'expertise du cabinet à Courbevoie.</div>
-        <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
 
     <!-- MDC Beauty -->
     <div class="project-card" data-cat="ugc">
-      <div class="video-placeholder">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF6B9D" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
-        <p>MDC Beauty — Reel</p>
-      </div>
+      <iframe class="video-embed" width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/socutkb1b54" title="MDC Beauty — Reel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block;"></iframe>
       <span class="project-badge badge-ugc">UGC</span>
       <div class="project-overlay">
         <div class="project-cat cat-ugc">Beauté — UGC / Reels</div>
         <div class="project-name">MDC Beauty</div>
         <div class="project-desc">Reel Instagram UGC pour la marque : contenu authentique et engageant pour les réseaux sociaux.</div>
-        <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
 
@@ -702,16 +693,12 @@
 
     <!-- Higgsfield IA -->
     <div class="project-card" data-cat="ia">
-      <div class="video-placeholder">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1"><polygon points="5,3 19,12 5,21"/></svg>
-        <p>Animation IA — Higgsfield</p>
-      </div>
+      <iframe class="video-embed" width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/2FcOuf_90Bk" title="Animation IA — Higgsfield" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block;"></iframe>
       <span class="project-badge badge-ia">IA</span>
       <div class="project-overlay">
         <div class="project-cat cat-ia">IA Vidéo — Animation</div>
         <div class="project-name">Animation IA — Higgsfield</div>
         <div class="project-desc">Animations cinématiques générées avec Higgsfield & Kling 3.0 — exploration créative IA.</div>
-        <a href="#" class="project-link">Voir la vidéo →</a>
       </div>
     </div>
 
@@ -774,12 +761,36 @@
       <p>Polyvalent, autonome, respect des délais. Disponible pour CDI, CDD ou missions freelance en Île-de-France.</p>
     </div>
     <div class="about-right">
-      <div class="tool-row"><span class="tool-label">Montage</span><span class="tool-tags">Premiere Pro · Capcut</span></div>
-      <div class="tool-row"><span class="tool-label">Motion Design</span><span class="tool-tags">After Effects</span></div>
-      <div class="tool-row"><span class="tool-label">Étalonnage</span><span class="tool-tags">Photoshop · Lightroom</span></div>
-      <div class="tool-row"><span class="tool-label">IA Vidéo</span><span class="tool-tags">Higgsfield · Kling 3.0 · Seedance</span></div>
-      <div class="tool-row"><span class="tool-label">Captation</span><span class="tool-tags">Sony · Canon · DJI · Insta360</span></div>
-      <div class="tool-row"><span class="tool-label">UGC / Réseaux</span><span class="tool-tags">Reels · TikTok · YouTube Shorts</span></div>
+      <div class="tool-row">
+        <span class="tool-label">Premiere Pro</span>
+        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:95%"></div></div>
+        <span class="tool-pct">95%</span>
+      </div>
+      <div class="tool-row">
+        <span class="tool-label">After Effects</span>
+        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:85%"></div></div>
+        <span class="tool-pct">85%</span>
+      </div>
+      <div class="tool-row">
+        <span class="tool-label">Étalonnage</span>
+        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:80%"></div></div>
+        <span class="tool-pct">80%</span>
+      </div>
+      <div class="tool-row">
+        <span class="tool-label">Higgsfield IA</span>
+        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:90%"></div></div>
+        <span class="tool-pct">90%</span>
+      </div>
+      <div class="tool-row">
+        <span class="tool-label">Captation Sony</span>
+        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:88%"></div></div>
+        <span class="tool-pct">88%</span>
+      </div>
+      <div class="tool-row">
+        <span class="tool-label">UGC / Reels</span>
+        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:92%"></div></div>
+        <span class="tool-pct">92%</span>
+      </div>
     </div>
   </div>
 </section>
@@ -854,10 +865,10 @@ animCursor();
 document.getElementById('showreelPlay').addEventListener('click', () => {
   const url = prompt('Colle ton lien YouTube ici :');
   if (!url) return;
-  const match = url.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  const match = url.match(/(?:v=|youtu\.be\/|shorts\/)([a-zA-Z0-9_-]{11})/);
   if (match) {
     document.getElementById('showreelWrapper').innerHTML =
-      `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${match[1]}?autoplay=1" frameborder="0" allow="autoplay;fullscreen" allowfullscreen style="display:block;"></iframe>`;
+      `<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/${match[1]}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block;"></iframe>`;
   }
 });
 
@@ -881,10 +892,12 @@ document.querySelectorAll('.project-link').forEach(link => {
     e.preventDefault();
     const url = prompt('Colle le lien YouTube de ce projet :');
     if (!url) return;
-    const match = url.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+    const match = url.match(/(?:v=|youtu\.be\/|shorts\/)([a-zA-Z0-9_-]{11})/);
     if (match) {
       const thumb = link.closest('.project-card').querySelector('.video-placeholder');
-      thumb.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${match[1]}?autoplay=1" frameborder="0" allow="autoplay;fullscreen" allowfullscreen style="display:block;"></iframe>`;
+      if (thumb) {
+        thumb.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/${match[1]}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block;"></iframe>`;
+      }
     }
   });
 });
